@@ -7,10 +7,9 @@ from websocket import create_connection
 import time
 from colorama import Fore, Back, Style, init
 init(autoreset=True)
-class mailbox(object):
-	"""10 minute mailbox"""
+class inbox(object):
 	def __init__(self):
-		super(mailbox, self).__init__()
+		super(inbox, self).__init__()
 		self.ws = create_connection("wss://dropmail.me/websocket")
 		self.next = self.ws.recv
 		self.close = self.ws.close
@@ -51,7 +50,7 @@ if __name__ == '__main__':
 	banner()
 	print("UNTUK KELUAR TEKAN : CTRL + C")
 	try:
-		box = mailbox()
+		box = inbox()
 		main(box)
 	except KeyboardInterrupt:
 		box.close()
